@@ -11,7 +11,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_vpc" "mekzoomcamp2024" {
+resource "aws_vpc" "zoomcamptest" {
   cidr_block = "10.0.0.0/16"
 }
 
