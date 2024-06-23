@@ -50,12 +50,21 @@ services:
 
 
 # docker run -it \
-#   --network=pg-network \
-#   taxi_upload:v001 \
+# --network=pg-network \
+#   taxi_ingest:v001 \
+#     --user=sa \
+#     --pw=Mek.920422 \
+#     --host=2_docker_sql-pgdatabase-1 \
+#     --port=5432 \
+#     --db=ny_taxi \
+#     --table=yellow_taxi_trips \
+#     --url=${URL}
+
+# docker run -it \
+#   taxi_updatecsv:v001 \
 #     --user=sa \
 #     --pw=Mek.920422 \
 #     --host=pg-database \
 #     --port=5432 \
 #     --db=by_taxi \
-#     --table=yellow_taxi_trips \
-#     --url=${URL}
+#     --table=yellow_taxi_trips
