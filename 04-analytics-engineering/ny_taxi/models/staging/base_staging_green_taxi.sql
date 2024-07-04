@@ -3,7 +3,8 @@ with source as (
 ),
 renamed as (
     select
-        "VendorID"
+        {{ dbt_utils.generate_surrogate_key(['"VendorID"', 'lpep_pickup_datetime']) }} as tripid
+		,"VendorID"
 	    , lpep_pickup_datetime
 	    , lpep_dropoff_datetime
 	    , store_and_fwd_flag
