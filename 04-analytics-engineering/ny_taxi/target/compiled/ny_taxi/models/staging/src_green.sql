@@ -1,0 +1,1 @@
+SELECT * FROM "ny_taxi"."public"."green_taxi"
