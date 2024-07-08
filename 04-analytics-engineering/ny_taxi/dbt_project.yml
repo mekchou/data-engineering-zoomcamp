@@ -45,3 +45,7 @@ seeds:
   ny_taxi:
     # staging:
     +schema: staging
+
+
+vars:
+  payment_type_values: [1,2,3,4,5]
