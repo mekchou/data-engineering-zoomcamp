@@ -1,18 +1,23 @@
 terraform {
   required_providers {
-    google = {
+    aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 4.0"
     }
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
 }
 
-resource "aws_vpc" "zoomcamptest" {
-  cidr_block = "10.0.0.0/16"
+resource "aws_instance" "web" {
+  ami           = "ami-09040d770ffe2224f"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
 }
 
 # resource "google_storage_bucket" "data-lake-bucket" {

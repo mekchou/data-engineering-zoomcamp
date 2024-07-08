@@ -22,10 +22,11 @@ def main(params):
     engine = create_engine(f'postgresql://{user}:{pw}@{host}:{port}/{db}')
 
     df = pd.read_parquet(parquet_name)
+    # df = pd.read_csv("yellow_tripdata.csv")
     df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
     df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
     df.head(n=0).to_sql(name=table, con=engine, if_exists='replace')
-    df.to_sql(name=table, con=engine, if_exists='append')
+    df.head(100).to_sql(name=table, con=engine, if_exists='append')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
